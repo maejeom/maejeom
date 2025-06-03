@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>매점 선물 도우미</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎁 매점 선물 도우미</h1>
+    
+    <div class="form-row">
+      <div class="form-group half">
+        <label for="category">📂 카테고리</label>
+        <select id="category">
+          <option value="과자">과자</option>
+          <option value="음료">음료</option>
+          <option value="아이스크림">아이스크림</option>
+          <option value="음식">음식</option>
+          <option value="카페인음료">카페인음료</option>
+        </select>
+      </div>
+
+      <div class="form-group half">
+        <label for="budget">💰 예산 (원)</label>
+        <input type="number" id="budget" placeholder="ex) 1500" />
+      </div>
+    </div>
+
+    <div class="form-group tag-selection-row">
+      <label>🏷️ 태그</label>
+      <div class="form-group">
+        <select id="tagFilterMode">
+          <option value="include">선택한 태그 중 일부를 포함하는 상품</option>
+          <option value="partial">선택한 태그를 포함하는 상품</option>
+        </select>
+      </div>
+      <div id="situation-buttons" class="situation-buttons">
+        <button class="situation-btn" data-tag="달콤한"># 달콤한</button>
+        <button class="situation-btn" data-tag="짭짤한"># 짭짤한</button>
+        <button class="situation-btn" data-tag="매운"># 매운</button>
+        <button class="situation-btn" data-tag="신맛 나는"># 신맛 나는</button>
+        <button class="situation-btn" data-tag="고소한"># 고소한</button>
+        <button class="situation-btn" data-tag="쌉싸름한"># 쌉싸름한</button>
+      </div>
+    </div>
+
+
+    <button class="recommend-btn" onclick="recommendGift()">✨ 추천 받기</button>
+
+    <div id="result" class="result-container" style="display:none;">
+      <div class="card-scroll-wrapper">
+        <button id="scrollLeft" class="scroll-btn">◀</button>
+        <div id="cardList" class="card-list"></div>
+        <button id="scrollRight" class="scroll-btn">▶</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

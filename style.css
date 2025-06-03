@@ -1,0 +1,218 @@
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: linear-gradient(to right, #FFDEE9, #B5FFFC);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-group.half {
+  flex: 1;              /* 같은 너비로 균등 분할 */
+}
+
+.form-group.half select,
+.form-group.half input {
+  width: 100%;          /* 내부 요소가 부모 너비 꽉 채우기 */
+  box-sizing: border-box; /* 패딩/테두리 포함해서 100% 너비 유지 */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+select, input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 14px;
+  background-color: #fdfdfd;
+}
+
+.result-container {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-container strong {
+  color: #ff758c;
+  font-size: 18px;
+}
+
+.result ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.result li {
+  margin-bottom: 6px;
+}
+
+.card-scroll-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* 카드 목록 */
+.card-list {
+  min-width: 260px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  flex-grow: 1;
+}
+
+.card-list::-webkit-scrollbar {
+  height: 8px;
+}
+.card-list::-webkit-scrollbar-thumb {
+  background: #ffc1cc;
+  border-radius: 4px;
+}
+
+/* 카드 */
+.card {
+  min-width: 200px;
+  flex-shrink: 0;
+  background: #fff0f5;
+  border: 2px solid #ffc1cc;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 2px 4px 10px rgba(255, 117, 140, 0.1);
+  scroll-snap-align: start;
+}
+
+/* 카드 내용 */
+.card-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ff758c;
+}
+.card-details {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* 스크롤 버튼 */
+.scroll-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  padding: 8px;
+  transition: color 0.2s ease;
+}
+
+.scroll-btn:hover {
+  background: none;
+  color: #ff758c;
+}
+
+.situation-btn {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.situation-btn:hover {
+  background-color: #ffe0ef;
+  border-color: #ff7eb3;
+  color: #333;
+}
+
+.situation-btn.active {
+  background-color: #ff7eb3;
+  color: white;
+  border-color: #ff7eb3;
+}
+
+.recommend-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #ffa7b6, #ff5da0);
+  background-size: 200% 100%; /* 배경 크기 2배로 설정 */
+  background-position: left center;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-position 0.5s ease;
+}
+
+.recommend-btn:hover {
+  background-position: right center; /* 그라디언트가 오른쪽으로 부드럽게 이동 */
+}
+
+.situation-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px; /* 세로 간격 12px, 가로 간격 8px */
+}
+
+.tag-selection-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.tag-filter-options {
+  margin-top: 8px;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+}
+
+.tag-filter-options input[type="radio"] {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.tag-filter-options label {
+  cursor: pointer;
+}
