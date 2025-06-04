@@ -50,7 +50,6 @@ function recommendGift() {
     filtered = items.filter(item =>
       item.category === category &&
       item.price <= budget &&
-      selectedTags.size === item.tags.length &&
       [...selectedTags].every(tag => item.tags.includes(tag))
     );
   } else {
