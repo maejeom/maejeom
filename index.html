@@ -11,16 +11,18 @@
   <div class="container">
     <h1>🎁 매점 선물 도우미</h1>
     
-    <div class="form-row">
-      <div class="form-group half">
-        <label for="category">📂 카테고리</label>
-        <select id="category">
-          <option value="과자">과자</option>
-          <option value="음료">음료</option>
-          <option value="아이스크림">아이스크림</option>
-          <option value="음식">음식</option>
-          <option value="카페인음료">카페인음료</option>
-        </select>
+    <div class="form-section">
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="category">📂 카테고리</label>
+          <select id="category">
+            <option value="과자">과자</option>
+            <option value="음료">음료</option>
+            <option value="아이스크림">아이스크림</option>
+            <option value="음식">음식</option>
+            <option value="카페인음료">카페인음료</option>
+          </select>
+        </div>
       </div>
 
       <div class="form-group half">
@@ -30,20 +32,21 @@
     </div>
 
     <div class="form-group tag-selection-row">
-      <label>🏷️ 태그</label>
-      <div class="form-group">
-        <select id="tagFilterMode">
-          <option value="include">선택한 태그 중 일부를 포함하는 상품</option>
-          <option value="partial">선택한 태그를 포함하는 상품</option>
-        </select>
-      </div>
-      <div id="situation-buttons" class="situation-buttons">
-        <button class="situation-btn" data-tag="달콤한"># 달콤한</button>
-        <button class="situation-btn" data-tag="짭짤한"># 짭짤한</button>
-        <button class="situation-btn" data-tag="매운"># 매운</button>
-        <button class="situation-btn" data-tag="신맛 나는"># 신맛 나는</button>
-        <button class="situation-btn" data-tag="고소한"># 고소한</button>
-        <button class="situation-btn" data-tag="쌉싸름한"># 쌉싸름한</button>
+      <div class="form-section"><label>🏷️ 태그</label>
+        <div class="form-group">
+          <select id="tagFilterMode">
+            <option value="include">선택한 태그에 포함되는 상품</option>
+            <option value="partial">선택한 태그를 포함하는 상품</option>
+          </select>
+        </div>
+        <div id="situation-buttons" class="situation-buttons">
+          <button class="situation-btn" data-tag="달콤한"># 달콤한</button>
+          <button class="situation-btn" data-tag="짭짤한"># 짭짤한</button>
+          <button class="situation-btn" data-tag="매운"># 매운</button>
+          <button class="situation-btn" data-tag="신맛 나는"># 신맛 나는</button>
+          <button class="situation-btn" data-tag="고소한"># 고소한</button>
+          <button class="situation-btn" data-tag="쌉싸름한"># 쌉싸름한</button>
+        </div>
       </div>
     </div>
 
@@ -59,6 +62,13 @@
     </div>
 
   </div>
+
+  <!-- 찜한 항목 보여주는 박스 -->
+  <div id="likedBox" class="liked-box" style="display: none;"></div>
+
+  <!-- 오른쪽 하단 고정 찜 보기 버튼 -->
+  <button id="showLiked" class="floating-like-btn" title="찜한 항목 보기">💖</button>
+
 
   <script src="script.js"></script>
 </body>
