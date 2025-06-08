@@ -3,28 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>매점 선물 도우미</title>
+  <title>Gift Picker</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>🎁 매점 선물 도우미</h1>
+    <h1>Gift Picker</h1>
     
     <div class="form-section">
       <div class="form-row">
         <div class="form-group half">
           <label for="category">📂 카테고리</label>
           <select id="category">
-            <option value="과자">과자</option>
             <option value="음료">음료</option>
-            <option value="아이스크림">아이스크림</option>
-            <option value="음식">음식</option>
-            <option value="카페인음료">카페인음료</option>
           </select>
         </div>
       </div>
-
+    </div>
+    
+    <div class="form-section">
       <div class="form-group half">
         <label for="budget">💰 예산 (원)</label>
         <input type="number" id="budget" placeholder="ex) 1500" />
@@ -63,12 +61,32 @@
 
   </div>
 
-  <!-- 찜한 항목 보여주는 박스 -->
-  <div id="likedBox" class="liked-box" style="display: none;"></div>
+  <button id="showGiftLog" class="floating-giftlog-btn" title="받은 선물 기록">🎀</button>
+    <div id="giftLogModal" class="gift-log-modal" style="display:none;">
+      <div class="gift-log-content">
+        <h2>받은 선물 기록하기</h2>
+        <form id="giftLogForm">
+          <button type="button" id="closeGiftLog" title="닫기">✖</button>
+          <input type="text" id="friendName" placeholder="친구 이름" required />
+          <select id="giftName" required>
+            <option value="">받은 선물 선택</option>
+            <!-- JS에서 상품 목록으로 옵션 자동 생성 -->
+            <option value="기타">기타</option>
+          </select>
+          <input type="text" id="customGiftName" placeholder="직접 입력" style="display:none; margin-top:8px;" />
+          <input type="date" id="giftDate" required />
+          <button type="submit">기록하기</button>
+        </form>
+        <h3>기록 목록</h3>
+        <div id="giftLogList" class="gift-log-list-cards"></div>
+      </div>
+    </div>
 
   <!-- 오른쪽 하단 고정 찜 보기 버튼 -->
   <button id="showLiked" class="floating-like-btn" title="찜한 항목 보기">💖</button>
 
+  <!-- 찜한 항목 보여주는 박스 -->
+  <div id="likedBox" class="liked-box" style="display: none;"></div>
 
   <script src="script.js"></script>
 </body>
