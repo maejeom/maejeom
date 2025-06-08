@@ -292,11 +292,11 @@ select, input {
 .floating-like-btn {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  right: 100px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #ff4d88;
+  background-color: #ff7ba7;
   color: white;
   font-size: 24px;
   border: none;
@@ -312,7 +312,7 @@ select, input {
   width: 300px;
   max-height: 400px;
   overflow-y: auto;
-  background-color: #fff0f5;
+  background-color: #ffe6eb;
   border: 2px solid #ffc1cc;
   border-radius: 16px;
   padding: 16px;
@@ -322,12 +322,13 @@ select, input {
 
 .liked-card {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* 핵심: 버튼과 구분선이 카드 높이에 맞춰짐 */
   background: #fff0f5;
   border: 2px solid #ffc1cc;
   border-radius: 14px;
   padding: 12px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   box-shadow: 2px 4px 10px rgba(255, 117, 140, 0.1);
 }
 
@@ -337,22 +338,178 @@ select, input {
 
 .divider-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch; /* 세로선이 전체 높이로 늘어나게 */
+  justify-content: center;
   margin-left: 12px;
 }
 
 .vertical-divider {
-  width: 1px;
-  height: 100%;
-  background-color: #ccc;
-  margin-bottom: 6px;
+  width: 2px;
+  background-color: #ffb6c1;  /* 더 눈에 띄는 파스텔 분홍색 */
+  margin: 0 8px;
+  border-radius: 1px;
 }
 
-.unlike-btn {
-  background-color: #ffe6e6;
-  border: 1px solid #ff8888;
+/* 받은 선물 기록 버튼을 찜 버튼 옆에 같은 크기로 고정 */
+.floating-giftlog-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  padding: 6px 10px;
+  background-color: #ffe0f0;
+  color: #e60039;
+  font-size: 24px;
+  border: none;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gift-log-modal {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  overflow: auto; /* 뷰포트보다 클 경우 스크롤 가능하게 */
+  padding: 20px;   /* 위아래 여백 추가 */
+}
+
+.gift-log-content {
+  background: #fff;
+  padding: 24px 20px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 360px;       /* 💡 작게 고정 */
+  box-sizing: border-box;
+  position: relative;
+  margin: auto;           /* flex에 추가 안정성 */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* 기록 목록 카드 스타일 */
+.gift-log-list-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.gift-log-card {
+  display: flex;
+  align-items: stretch; /* 구분선과 버튼이 세로로 늘어나게 */
+  justify-content: space-between;
+  background: #fff7fb;
+  border: 2px solid #ffd3e0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 8px #ffd3e033;
+  font-size: 15px;
+}
+
+.gift-log-card .gift-date {
+  font-size: 13px;
+  color: #ff7eb3;
+  margin-bottom: 4px;
+}
+
+.gift-log-card .gift-info {
+  font-weight: bold;
+  color: #e60039;
+}
+
+.gift-log-content h2, .gift-log-content h3 {
+  margin-top: 0;
+}
+
+.gift-log-content form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.gift-log-content input[type="text"],
+.gift-log-content input[type="date"],
+.gift-log-content select {
+  height: 38px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  /* 기본 화살표는 남김 */
+}
+
+.gift-log-content button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #ffb6d5;
+  color: #222;
+  cursor: pointer;
+}
+
+.gift-log-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.gift-log-content li {
+  margin-bottom: 6px;
+  font-size: 1em;
+}
+
+/* 닫기 버튼 오른쪽 상단에 배치 */
+#closeGiftLog {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+#closeGiftLog:hover {
+  color: #ff4d88;
+}
+
+.gift-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.delete-btn,
+.unlike-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+  color: #999 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100% !important;         /* 카드 높이만큼 확장 */
+  width: 40px !important;          /* 적당한 너비 지정 (가로 정렬 대비) */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.delete-btn:hover,
+.unlike-btn:hover {
+  color: #999 !important;
 }
